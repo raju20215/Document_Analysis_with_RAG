@@ -1,0 +1,2 @@
+# This file ensures the files/ directory is tracked by git
+# The actual PDF/DOCX files will be ignored per .gitignore

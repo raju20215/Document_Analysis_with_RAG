@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# DocGenius specific
+vectordb/
+files/*.pdf
+files/*.docx
+*.faiss
+*.pkl
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+.cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Keep directory structure but ignore contents
+files/.gitkeep
+!files/.gitkeep

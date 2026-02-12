@@ -1,0 +1,32 @@
+# Core LangChain
+langchain
+langchain-community
+langchain-core
+
+# Ollama integrations
+ollama
+langchain-ollama
+
+# Embeddings + Vector DB
+faiss-cpu
+
+# Unstructured document loaders
+unstructured
+
+# PDF loader (PyMuPDF for better image handling)
+pymupdf
+
+# Word document loader
+docx2txt
+
+# Streamlit UI
+streamlit
+
+# Utilities
+python-magic-bin # (Needed for Windows unstructured)
+pandas
+numpy
+beautifulsoup4
+
+# Optional (for stability)
+tiktoken
