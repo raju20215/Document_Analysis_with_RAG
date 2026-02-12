@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![DocGenius Banner](images/banner_placeholder.svg)
+
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-0.2.x-green.svg)
 ![Streamlit](https://img.shields.io/badge/Streamlit-UI-red.svg)
@@ -31,13 +33,13 @@ In today's information-driven world, individuals and organizations face signific
 
 ## 🎯 Objectives
 
-1. **Privacy-First Design**: Ensure all document processing happens locally without any external API calls
-2. **Intelligent Retrieval**: Implement semantic search using vector embeddings for context-aware information retrieval
-3. **Multi-Format Support**: Enable processing of multiple document formats (PDF, DOCX)
-4. **Source Attribution**: Provide transparent citations with exact page numbers and document sources
-5. **User Experience**: Create an intuitive, easy-to-use interface accessible to non-technical users
-6. **Cost-Effective**: Utilize open-source tools (Ollama, LangChain, FAISS) to eliminate subscription costs
-7. **Scalability**: Design architecture to handle large document collections efficiently
+1.  **Privacy-First Design**: Ensure all document processing happens locally without any external API calls
+2.  **Intelligent Retrieval**: Implement semantic search using vector embeddings for context-aware information retrieval
+3.  **Multi-Format Support**: Enable processing of multiple document formats (PDF, DOCX)
+4.  **Source Attribution**: Provide transparent citations with exact page numbers and document sources
+5.  **User Experience**: Create an intuitive, easy-to-use interface accessible to non-technical users
+6.  **Cost-Effective**: Utilize open-source tools (Ollama, LangChain, FAISS) to eliminate subscription costs
+7.  **Scalability**: Design architecture to handle large document collections efficiently
 
 ---
 
@@ -71,6 +73,9 @@ Retrieved Context + User Query → LLM Prompt → AI Response → Source Citatio
 - **Response Validation**: Ensures answers are derived only from provided context
 
 ### 4. **User Interface Design**
+![User Interface](images/ui_screenshot_placeholder.svg)
+*(Caption: The intuitive chat interface allowing users to query documents naturally)*
+
 - **Streamlit Framework**: Interactive web-based UI with real-time updates
 - **Session Management**: Persistent chat history within sessions
 - **Database Management**: Easy rebuild and deletion options
@@ -150,6 +155,8 @@ Retrieved Context + User Query → LLM Prompt → AI Response → Source Citatio
 
 ## 🏗️ System Architecture
 
+![Architecture Diagram](images/architecture.svg)
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                        STREAMLIT UI LAYER                       │
@@ -166,6 +173,7 @@ Retrieved Context + User Query → LLM Prompt → AI Response → Source Citatio
     │  Document Loaders    │    │ Query Embedding│
     │  • PyMuPDF (PDF)     │    │ (nomic-embed)  │
     │  • Docx2txt (DOCX)   │    └───────┬────────┘
+    │    (handles images)  │            │
     └───────────┬──────────┘            │
                 │                ┌──────▼──────────┐
     ┌───────────▼──────────┐    │ FAISS Similarity│
@@ -239,47 +247,47 @@ rag_chain = RunnableParallel({
 
 Before you begin, ensure you have the following installed:
 
-1. **Python 3.8 or higher**
-   ```bash
-   python --version
-   ```
+1.  **Python 3.8 or higher**
+    ```bash
+    python --version
+    ```
 
-2. **Ollama** - Install from [ollama.ai](https://ollama.ai)
-   - After installation, pull the required models:
-   ```bash
-   ollama pull nomic-embed-text
-   ollama pull gemma3:1b
-   ```
+2.  **Ollama** - Install from [ollama.ai](https://ollama.ai)
+    - After installation, pull the required models:
+    ```bash
+    ollama pull nomic-embed-text
+    ollama pull gemma3:1b
+    ```
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/DocGenius.git
-   cd DocGenius
-   ```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/yourusername/DocGenius.git
+    cd DocGenius
+    ```
 
-2. **Create a virtual environment** (recommended)
-   ```bash
-   python -m venv venv
-   
-   # On Windows
-   venv\Scripts\activate
-   
-   # On macOS/Linux
-   source venv/bin/activate
-   ```
+2.  **Create a virtual environment** (recommended)
+    ```bash
+    python -m venv venv
+    
+    # On Windows
+    venv\Scripts\activate
+    
+    # On macOS/Linux
+    source venv/bin/activate
+    ```
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+3.  **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-4. **Verify Ollama is running**
-   ```bash
-   # Start Ollama service if not already running
-   ollama serve
-   ```
+4.  **Verify Ollama is running**
+    ```bash
+    # Start Ollama service if not already running
+    ollama serve
+    ```
 
 ---
 
@@ -287,32 +295,32 @@ Before you begin, ensure you have the following installed:
 
 ### Running the Application
 
-1. **Start the Streamlit app**
-   ```bash
-   streamlit run app.py
-   ```
+1.  **Start the Streamlit app**
+    ```bash
+    streamlit run app.py
+    ```
 
-2. **The app will automatically open in your browser** (typically at http://localhost:8501)
+2.  **The app will automatically open in your browser** (typically at http://localhost:8501)
 
 ### Using DocGenius
 
-1. **Upload Documents**
-   - Click on the sidebar and upload PDF or DOCX files
-   - Supports multiple file uploads
+1.  **Upload Documents**
+    - Click on the sidebar and upload PDF or DOCX files
+    - Supports multiple file uploads
 
-2. **Build Vector Database**
-   - Click "🔨 Build Vector Database" button
-   - Wait for processing to complete (may take a few minutes depending on document size)
-   - Refresh the page after completion
+2.  **Build Vector Database**
+    - Click "🔨 Build Vector Database" button
+    - Wait for processing to complete (may take a few minutes depending on document size)
+    - Refresh the page after completion
 
-3. **Start Chatting**
-   - Type your question in the chat input at the bottom
-   - The AI will analyze your documents and provide answers with source citations
-   - Click "📚 View Sources" to see the exact document sections used
+3.  **Start Chatting**
+    - Type your question in the chat input at the bottom
+    - The AI will analyze your documents and provide answers with source citations
+    - Click "📚 View Sources" to see the exact document sections used
 
-4. **Manage Your Database**
-   - **Clear Chat**: Remove conversation history
-   - **Delete DB**: Remove the vector database and start fresh
+4.  **Manage Your Database**
+    - **Clear Chat**: Remove conversation history
+    - **Delete DB**: Remove the vector database and start fresh
 
 ---
 
@@ -359,6 +367,8 @@ DocGenius/
 ├── requirements.txt           # Python dependencies
 ├── README.md                  # This file
 ├── SOURCE_CITATIONS.md        # Source attribution information
+├── images/                     # Images and diagrams
+│   └── architecture.svg      # System architecture diagram
 ├── files/                     # Directory for uploaded documents
 └── vectordb/                  # FAISS vector database storage
     ├── index.faiss           # Vector index
@@ -382,20 +392,20 @@ DocGenius/
 
 ### How It Works
 
-1. **Document Processing**:
-   - Documents are loaded and split into chunks (1000 characters with 200 character overlap)
-   - Each chunk is converted into vector embeddings using the Ollama embedding model
-   - Embeddings are stored in a FAISS vector database for fast retrieval
+1.  **Document Processing**:
+    - Documents are loaded and split into chunks (1000 characters with 200 character overlap)
+    - Each chunk is converted into vector embeddings using the Ollama embedding model
+    - Embeddings are stored in a FAISS vector database for fast retrieval
 
-2. **Question Answering**:
-   - User question is converted to an embedding
-   - Similar document chunks are retrieved from the vector database (top 5 by default)
-   - Retrieved context + question are sent to the LLM
-   - LLM generates a detailed answer based on the context
+2.  **Question Answering**:
+    - User question is converted to an embedding
+    - Similar document chunks are retrieved from the vector database (top 5 by default)
+    - Retrieved context + question are sent to the LLM
+    - LLM generates a detailed answer based on the context
 
-3. **Source Attribution**:
-   - Original source documents and page numbers are preserved in metadata
-   - Sources are displayed with each answer for verification
+3.  **Source Attribution**:
+    - Original source documents and page numbers are preserved in metadata
+    - Sources are displayed with each answer for verification
 
 ---
 
@@ -432,11 +442,11 @@ DocGenius/
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1.  Fork the repository
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
 ---
 
